@@ -6,16 +6,249 @@
     <title>Rotas Inclusivas - Passagens com Desconto</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- CSS Personalizado -->
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+        }
+        
+        .navbar {
+            background-color: var(--primary-color) !important;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand img {
+            height: 50px;
+            transition: transform 0.3s;
+        }
+        
+        .navbar-brand img:hover {
+            transform: scale(1.05);
+        }
+        
+        .nav-link {
+            color: white !important;
+            font-weight: 500;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: var(--secondary-color) !important;
+        }
+        
+        .nav-link.active {
+            font-weight: bold;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+        
+        .btn-primary {
+            background-color: var(--secondary-color);
+            border: none;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .btn-outline-primary {
+            color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            font-weight: 600;
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        
+        .page-header {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('img/banner-passagens.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-weight: 700;
+            font-size: 3rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        .route-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            height: 100%;
+            position: relative;
+        }
+        
+        .route-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .route-image {
+            height: 200px;
+            object-fit: cover;
+            width: 100%;
+        }
+        
+        .route-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        
+        .route-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+        
+        .route-old-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 1rem;
+        }
+        
+        .route-features {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .route-features li {
+            margin-bottom: 8px;
+        }
+        
+        .route-features i {
+            color: var(--secondary-color);
+            margin-right: 8px;
+        }
+        
+        .filter-section {
+            background-color: var(--light-color);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .featurette-divider {
+            margin: 80px 0;
+            border-top: 1px solid #ddd;
+        }
+        
+        .featurette-heading {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .benefits-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .benefits-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .benefits-list i {
+            color: var(--secondary-color);
+            margin-right: 10px;
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 50px;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .quick-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .quick-links li {
+            margin-bottom: 10px;
+        }
+        
+        .quick-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .quick-links a:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+        
+        .search-box {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-top: -50px;
+            position: relative;
+            z-index: 10;
+        }
+    </style>
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <!-- Navbar (igual à página inicial) -->
+    <!-- Navbar (igual ao da home) -->
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="inicialpage.html">
                     <img src="img/logo (2).png" alt="Logo Rotas Inclusivas" class="logo-home">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -25,24 +258,24 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="inicialpage.html">Home</a>
+                            <a class="nav-link" href="inicialpage.html"><i class="fas fa-home"></i> Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Sobre</a>
+                            <a class="nav-link" href="#"><i class="fas fa-info-circle"></i> Sobre</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="passagens.html">Passagens</a>
+                            <a class="nav-link active" href="passagens.html"><i class="fas fa-bus"></i> Passagens</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="compra.html">Comprar Passagem</a>
+                            <a class="nav-link" href="compra.html"><i class="fas fa-ticket-alt"></i> Comprar Passagem</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Contato</a>
+                            <a class="nav-link" href="#"><i class="fas fa-phone"></i> Contato</a>
                         </li>
                     </ul>
                     <form class="d-flex ms-auto">
-                        <input class="form-control me-2" type="search" placeholder="Buscar rotas..." aria-label="Buscar">
-                        <button class="btn btn-outline-success" type="submit">Buscar</button>
+                        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
+                        <button class="btn btn-outline-light" type="submit"><i class="fas fa-search"></i></button>
                     </form>
                 </div>
             </div>
@@ -50,161 +283,398 @@
     </header>
 
     <main>
-        <!-- Seção de Passagens (estilo de cards, como na página de cursos) -->
-        <div class="container px-4 py-5">
-            <h2 class="pb-2 border-bottom">Passagens com Desconto para Idosos e PCDs</h2>
-            <p class="lead">Encontre viagens acessíveis e com benefícios exclusivos:</p>
+        <!-- Cabeçalho da Página -->
+        <div class="page-header">
+            <div class="container">
+                <h1>Passagens com Desconto</h1>
+                <p class="lead">Encontre as melhores ofertas para idosos e pessoas com deficiência em viagens acessíveis por todo o Brasil</p>
+            </div>
+        </div>
+
+        <!-- Caixa de Pesquisa -->
+        <div class="container">
+            <div class="search-box">
+                <h3 class="mb-4">Encontre sua passagem ideal</h3>
+                <form>
+                    <div class="row g-3">
+                        <div class="col-md-3">
+                            <label for="origem" class="form-label">Origem</label>
+                            <input type="text" class="form-control" id="origem" placeholder="De onde você vai?">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="destino" class="form-label">Destino</label>
+                            <input type="text" class="form-control" id="destino" placeholder="Para onde você vai?">
+                        </div>
+                        <div class="col-md-2">
+                            <label for="data" class="form-label">Data</label>
+                            <input type="date" class="form-control" id="data">
+                        </div>
+                        <div class="col-md-2">
+                            <label for="passageiros" class="form-label">Passageiros</label>
+                            <select class="form-select" id="passageiros">
+                                <option selected>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4+</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2 d-flex align-items-end">
+                            <button type="submit" class="btn btn-primary w-100">Buscar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Seção de Passagens -->
+        <div class="container py-5">
+            <div class="d-flex justify-content-between align-items-center mb-5">
+                <h2 class="mb-0">Passagens em Destaque</h2>
+                <div class="dropdown">
+                    <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        Ordenar por: Mais relevantes
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="#">Menor preço</a></li>
+                        <li><a class="dropdown-item" href="#">Maior desconto</a></li>
+                        <li><a class="dropdown-item" href="#">Mais próximas</a></li>
+                        <li><a class="dropdown-item" href="#">Melhor avaliação</a></li>
+                    </ul>
+                </div>
+            </div>
             
-            <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+            <div class="row g-4">
                 <!-- Rota 1: São Paulo → Rio de Janeiro -->
-                <div class="col">
-                    <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg"
-                        style="background-image: url('img/rio-de-janeiro.jpg'); background-size: cover; background-position: center;">
-                        <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-                            <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">São Paulo → Rio de Janeiro</h2>
-                            <ul class="d-flex list-unstyled mt-auto">
-                                <li class="d-flex align-items-center me-3">
-                                    <small>Ônibus adaptado</small>
-                                </li>
-                                <li class="d-flex align-items-center">
-                                    <small class="text-success fw-bold">40% OFF</small>
-                                </li>
+                <div class="col-md-6 col-lg-4">
+                    <div class="route-card">
+                        <span class="route-badge">50% OFF</span>
+                        <img src="img/rio-de-janeiro.jpg" class="route-image" alt="Rio de Janeiro">
+                        <div class="p-4">
+                            <h4>São Paulo → Rio de Janeiro</h4>
+                            <p class="text-muted"><i class="fas fa-clock"></i> 6h de viagem | <i class="fas fa-calendar-alt"></i> Partidas diárias</p>
+                            
+                            <ul class="route-features">
+                                <li><i class="fas fa-check"></i> Ônibus adaptado</li>
+                                <li><i class="fas fa-check"></i> Wi-Fi grátis</li>
+                                <li><i class="fas fa-check"></i> Ar-condicionado</li>
                             </ul>
-                            <p class="mb-3">A partir de <span class="fs-4 fw-bold">R$ 89,90</span></p>
-                            <button class="btn btn-primary card-button">Comprar</button>
+                            
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <div>
+                                    <span class="route-price">R$ 89,90</span>
+                                    <span class="route-old-price ms-2">R$ 179,80</span>
+                                </div>
+                                <button class="btn btn-primary">Comprar</button>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Rota 2: Belo Horizonte → Vitória -->
-                <div class="col">
-                    <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg"
-                        style="background-image: url('img/vitoria-es.jpg'); background-size: cover; background-position: center;">
-                        <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-                            <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">BH → Vitória</h2>
-                            <ul class="d-flex list-unstyled mt-auto">
-                                <li class="d-flex align-items-center me-3">
-                                    <small>Wi-Fi e elevador</small>
-                                </li>
-                                <li class="d-flex align-items-center">
-                                    <small class="text-success fw-bold">35% OFF</small>
-                                </li>
+                <div class="col-md-6 col-lg-4">
+                    <div class="route-card">
+                        <span class="route-badge">35% OFF</span>
+                        <img src="img/vitoria-es.jpg" class="route-image" alt="Vitória">
+                        <div class="p-4">
+                            <h4>Belo Horizonte → Vitória</h4>
+                            <p class="text-muted"><i class="fas fa-clock"></i> 8h de viagem | <i class="fas fa-calendar-alt"></i> 3x por dia</p>
+                            
+                            <ul class="route-features">
+                                <li><i class="fas fa-check"></i> Elevador para cadeirantes</li>
+                                <li><i class="fas fa-check"></i> Banheiro adaptado</li>
+                                <li><i class="fas fa-check"></i> Poltronas reclináveis</li>
                             </ul>
-                            <p class="mb-3">A partir de <span class="fs-4 fw-bold">R$ 120,90</span></p>
-                            <button class="btn btn-primary card-button">Comprar</button>
+                            
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <div>
+                                    <span class="route-price">R$ 120,90</span>
+                                    <span class="route-old-price ms-2">R$ 186,00</span>
+                                </div>
+                                <button class="btn btn-primary">Comprar</button>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Rota 3: Curitiba → Florianópolis -->
-                <div class="col">
-                    <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg"
-                        style="background-image: url('img/florianopolis.jpg'); background-size: cover; background-position: center;">
-                        <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-                            <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Curitiba → Florianópolis</h2>
-                            <ul class="d-flex list-unstyled mt-auto">
-                                <li class="d-flex align-items-center me-3">
-                                    <small>Ar-condicionado</small>
-                                </li>
-                                <li class="d-flex align-items-center">
-                                    <small class="text-success fw-bold">50% OFF</small>
-                                </li>
+                <div class="col-md-6 col-lg-4">
+                    <div class="route-card">
+                        <span class="route-badge">50% OFF</span>
+                        <img src="img/florianopolis.jpg" class="route-image" alt="Florianópolis">
+                        <div class="p-4">
+                            <h4>Curitiba → Florianópolis</h4>
+                            <p class="text-muted"><i class="fas fa-clock"></i> 4h30 de viagem | <i class="fas fa-calendar-alt"></i> Partidas a cada 2h</p>
+                            
+                            <ul class="route-features">
+                                <li><i class="fas fa-check"></i> Espaço para cadeiras de rodas</li>
+                                <li><i class="fas fa-check"></i> Atendimento prioritário</li>
+                                <li><i class="fas fa-check"></i> Tomadas individuais</li>
                             </ul>
-                            <p class="mb-3">A partir de <span class="fs-4 fw-bold">R$ 75,50</span></p>
-                            <button class="btn btn-primary card-button">Comprar</button>
+                            
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <div>
+                                    <span class="route-price">R$ 75,50</span>
+                                    <span class="route-old-price ms-2">R$ 151,00</span>
+                                </div>
+                                <button class="btn btn-primary">Comprar</button>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Rota 4: Salvador → Aracaju -->
-                <div class="col">
-                    <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg"
-                        style="background-image: url('img/aracaju.jpg'); background-size: cover; background-position: center;">
-                        <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-                            <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Salvador → Aracaju</h2>
-                            <ul class="d-flex list-unstyled mt-auto">
-                                <li class="d-flex align-items-center me-3">
-                                    <small>Assistência prioritária</small>
-                                </li>
-                                <li class="d-flex align-items-center">
-                                    <small class="text-success fw-bold">30% OFF</small>
-                                </li>
+                <div class="col-md-6 col-lg-4">
+                    <div class="route-card">
+                        <span class="route-badge">30% OFF</span>
+                        <img src="img/aracaju.jpg" class="route-image" alt="Aracaju">
+                        <div class="p-4">
+                            <h4>Salvador → Aracaju</h4>
+                            <p class="text-muted"><i class="fas fa-clock"></i> 5h de viagem | <i class="fas fa-calendar-alt"></i> 2x por dia</p>
+                            
+                            <ul class="route-features">
+                                <li><i class="fas fa-check"></i> Assistência especializada</li>
+                                <li><i class="fas fa-check"></i> Rampa de acesso</li>
+                                <li><i class="fas fa-check"></i> Lanche incluso</li>
                             </ul>
-                            <p class="mb-3">A partir de <span class="fs-4 fw-bold">R$ 110,00</span></p>
-                            <button class="btn btn-primary card-button">Comprar</button>
+                            
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <div>
+                                    <span class="route-price">R$ 110,00</span>
+                                    <span class="route-old-price ms-2">R$ 157,14</span>
+                                </div>
+                                <button class="btn btn-primary">Comprar</button>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Rota 5: Recife → Natal -->
-                <div class="col">
-                    <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg"
-                        style="background-image: url('img/natal.jpg'); background-size: cover; background-position: center;">
-                        <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-                            <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Recife → Natal</h2>
-                            <ul class="d-flex list-unstyled mt-auto">
-                                <li class="d-flex align-items-center me-3">
-                                    <small>Banheiro adaptado</small>
-                                </li>
-                                <li class="d-flex align-items-center">
-                                    <small class="text-success fw-bold">25% OFF</small>
-                                </li>
+                <div class="col-md-6 col-lg-4">
+                    <div class="route-card">
+                        <span class="route-badge">25% OFF</span>
+                        <img src="img/natal.jpg" class="route-image" alt="Natal">
+                        <div class="p-4">
+                            <h4>Recife → Natal</h4>
+                            <p class="text-muted"><i class="fas fa-clock"></i> 4h de viagem | <i class="fas fa-calendar-alt"></i> Partidas diárias</p>
+                            
+                            <ul class="route-features">
+                                <li><i class="fas fa-check"></i> Banheiro adaptado</li>
+                                <li><i class="fas fa-check"></i> Wi-Fi de alta velocidade</li>
+                                <li><i class="fas fa-check"></i> Embarque prioritário</li>
                             </ul>
-                            <p class="mb-3">A partir de <span class="fs-4 fw-bold">R$ 95,90</span></p>
-                            <button class="btn btn-primary card-button">Comprar</button>
+                            
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <div>
+                                    <span class="route-price">R$ 95,90</span>
+                                    <span class="route-old-price ms-2">R$ 127,87</span>
+                                </div>
+                                <button class="btn btn-primary">Comprar</button>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Rota 6: Porto Alegre → Gramado -->
-                <div class="col">
-                    <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg"
-                        style="background-image: url('img/gramado.jpg'); background-size: cover; background-position: center;">
-                        <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-                            <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Porto Alegre → Gramado</h2>
-                            <ul class="d-flex list-unstyled mt-auto">
-                                <li class="d-flex align-items-center me-3">
-                                    <small>Wi-Fi e poltronas reclináveis</small>
-                                </li>
-                                <li class="d-flex align-items-center">
-                                    <small class="text-success fw-bold">45% OFF</small>
-                                </li>
+                <div class="col-md-6 col-lg-4">
+                    <div class="route-card">
+                        <span class="route-badge">45% OFF</span>
+                        <img src="img/gramado.jpg" class="route-image" alt="Gramado">
+                        <div class="p-4">
+                            <h4>Porto Alegre → Gramado</h4>
+                            <p class="text-muted"><i class="fas fa-clock"></i> 2h30 de viagem | <i class="fas fa-calendar-alt"></i> 5x por dia</p>
+                            
+                            <ul class="route-features">
+                                <li><i class="fas fa-check"></i> Wi-Fi e poltronas reclináveis</li>
+                                <li><i class="fas fa-check"></i> Espaço amplo para mobilidade</li>
+                                <li><i class="fas fa-check"></i> Serviço de bordo</li>
                             </ul>
-                            <p class="mb-3">A partir de <span class="fs-4 fw-bold">R$ 65,00</span></p>
-                            <button class="btn btn-primary card-button">Comprar</button>
+                            
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <div>
+                                    <span class="route-price">R$ 65,00</span>
+                                    <span class="route-old-price ms-2">R$ 118,18</span>
+                                </div>
+                                <button class="btn btn-primary">Comprar</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            
+            <nav aria-label="Page navigation" class="mt-5">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Anterior</a>
+                    </li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Próxima</a>
+                    </li>
+                </ul>
+            </nav>
         </div>
 
         <!-- Seção de Benefícios -->
         <div class="container mt-5">
             <hr class="featurette-divider">
-            <div class="row featurette">
+            <div class="row featurette align-items-center">
                 <div class="col-md-7">
-                    <h2 class="featurette-heading">Como funciona o desconto para idosos e PCDs?</h2>
-                    <p class="lead">
-                        - <strong>Idosos (acima de 60 anos)</strong>: 50% de desconto em passagens interestaduais (Lei 10.741/2003).<br>
-                        - <strong>PCDs</strong>: Isenção de taxa de embarque e prioridade no atendimento.<br>
-                        - <strong>Atendimento especial</strong>: Assistência desde o terminal até o ônibus.
-                    </p>
-                    <a href="#" class="btn btn-primary">Leia mais sobre os direitos</a>
+                    <h2 class="featurette-heading">Benefícios para Idosos e PCDs</h2>
+                    <p class="lead">Na Rotas Inclusivas, oferecemos condições especiais para tornar sua viagem mais acessível:</p>
+                    
+                    <ul class="benefits-list">
+                        <li><i class="fas fa-percentage"></i> <strong>Descontos exclusivos</strong>: Até 50% de desconto para idosos e PCDs em todas as rotas</li>
+                        <li><i class="fas fa-wheelchair"></i> <strong>Acessibilidade garantida</strong>: Frota 100% adaptada com elevadores, rampas e espaços amplos</li>
+                        <li><i class="fas fa-headset"></i> <strong>Atendimento prioritário</strong>: Embarque e desembarque facilitados e assistência especializada</li>
+                        <li><i class="fas fa-user-friends"></i> <strong>Desconto para acompanhantes</strong>: Condições especiais para quem viaja com você</li>
+                        <li><i class="fas fa-suitcase-rolling"></i> <strong>Bagagem gratuita</strong>: 2 malas de até 23kg sem custo adicional</li>
+                    </ul>
+                    
+                    <a href="#" class="btn btn-primary mt-3">Saiba mais sobre seus direitos</a>
                 </div>
                 <div class="col-md-5">
-                    <img src="img/idosos-viajando.jpg" alt="Idosos viajando" class="featurette-image img-fluid mx-auto rounded" width="500" height="500">
+                    <img src="img/beneficios-passagens.jpg" alt="Benefícios para idosos e PCDs" class="featurette-image img-fluid mx-auto rounded shadow" width="500" height="500">
+                </div>
+            </div>
+        </div>
+
+        <!-- Seção de Dúvidas Frequentes -->
+        <div class="container mt-5">
+            <hr class="featurette-divider">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2 class="featurette-heading">Dúvidas Frequentes</h2>
+                    
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Como comprovar minha condição para obter os descontos?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Para idosos, basta apresentar documento de identidade com data de nascimento. Para PCDs, é necessário apresentar laudo médico ou documento que comprove a condição especial.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Posso viajar com meu acompanhante com o mesmo desconto?
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Sim, oferecemos 30% de desconto para um acompanhante de PCD. Para idosos, o acompanhante paga tarifa normal, exceto em promoções específicas.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Como é o embarque prioritário?
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Idosos e PCDs têm direito a embarcar antes dos demais passageiros. Basta se identificar no balcão de atendimento do terminal pelo menos 30 minutos antes do horário de partida.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="card border-primary h-100">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="mb-0">Precisa de ajuda?</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">Nossa equipe está disponível para ajudar com qualquer dúvida sobre passagens, descontos ou acessibilidade.</p>
+                            
+                            <ul class="list-unstyled">
+                                <li class="mb-3"><i class="fas fa-phone-alt me-2 text-primary"></i> <strong>Telefone:</strong> (11) 4002-8922</li>
+                                <li class="mb-3"><i class="fas fa-whatsapp me-2 text-primary"></i> <strong>WhatsApp:</strong> (11) 98765-4321</li>
+                                <li class="mb-3"><i class="fas fa-envelope me-2 text-primary"></i> <strong>E-mail:</strong> contato@rotasinclusivas.com.br</li>
+                                <li><i class="fas fa-clock me-2 text-primary"></i> <strong>Atendimento:</strong> 24h por dia, 7 dias por semana</li>
+                            </ul>
+                            
+                            <button class="btn btn-primary w-100 mt-3">Chat Online</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </main>
 
     <!-- Rodapé -->
-    <footer class="text-center py-4 bg-light">
-        <p>&copy; 2023 Rotas Inclusivas. Todos os direitos reservados.</p>
-        <p>Desenvolvido com ❤️ para você!</p>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <img src="img/logo (2).png" alt="Logo Rotas Inclusivas" width="180" class="mb-3">
+                    <p>Especializada em viagens acessíveis para idosos e pessoas com deficiência. Conforto, segurança e preços acessíveis em todas as rotas.</p>
+                    
+                    <div class="social-icons mt-3">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-md-2 mb-4">
+                    <h5>Links Rápidos</h5>
+                    <ul class="quick-links">
+                        <li><a href="inicialpage.html">Home</a></li>
+                        <li><a href="#">Sobre Nós</a></li>
+                        <li><a href="passagens.html">Passagens</a></li>
+                        <li><a href="compra.html">Comprar Passagem</a></li>
+                        <li><a href="#">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <h5>Informações</h5>
+                    <ul class="quick-links">
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">Perguntas Frequentes</a></li>
+                        <li><a href="#">Reclamações</a></li>
+                        <li><a href="#">Trabalhe Conosco</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <h5>Contato</h5>
+                    <ul class="quick-links">
+                        <li><i class="fas fa-phone me-2"></i> (11) 4002-8922</li>
+                        <li><i class="fas fa-whatsapp me-2"></i> (11) 98765-4321</li>
+                        <li><i class="fas fa-envelope me-2"></i> contato@rotasinclusivas.com.br</li>
+                        <li><i class="fas fa-map-marker-alt me-2"></i> Av. Paulista, 1000 - São Paulo/SP</li>
+                        <li><i class="fas fa-clock me-2"></i> Atendimento 24h</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr style="border-color: rgba(255,255,255,0.1);">
+            
+            <div class="row">
+                <div class="col-md-6 text-md-start text-center mb-2">
+                    <p>&copy; 2023 Rotas Inclusivas. Todos os direitos reservados.</p>
+                </div>
+                <div class="col-md-6 text-md-end text-center">
+                    <p>Desenvolvido com <i class="fas fa-heart" style="color: #e74c3c;"></i> para você!</p>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+<!--Imagens estao nomeadas mas nao foram colocadas na pasta de imagens -->

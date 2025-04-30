@@ -6,14 +6,275 @@
     <title>Rotas Inclusivas - Viagens Acessíveis para Idosos e PCDs</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- CSS Personalizado -->
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+        }
+        
+        .navbar {
+            background-color: var(--primary-color) !important;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand img {
+            height: 50px;
+            transition: transform 0.3s;
+        }
+        
+        .navbar-brand img:hover {
+            transform: scale(1.05);
+        }
+        
+        .nav-link {
+            color: white !important;
+            font-weight: 500;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: var(--secondary-color) !important;
+        }
+        
+        .carousel {
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .carousel-item img {
+            height: 500px;
+            object-fit: cover;
+            filter: brightness(0.7);
+        }
+        
+        .carousel-caption {
+            bottom: 30%;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+        
+        .carousel-caption h5 {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+        
+        .carousel-caption p {
+            font-size: 1.2rem;
+        }
+        
+        .btn-primary {
+            background-color: var(--secondary-color);
+            border: none;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .btn-secondary {
+            background-color: var(--primary-color);
+            border: none;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #1a252f;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .featurette-divider {
+            margin: 80px 0;
+            border-top: 1px solid #ddd;
+        }
+        
+        .featurette-heading {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .rounded-circle {
+            border: 3px solid var(--secondary-color);
+            transition: transform 0.3s;
+        }
+        
+        .rounded-circle:hover {
+            transform: scale(1.05);
+        }
+        
+        .marketing {
+            padding: 60px 0;
+        }
+        
+        .marketing h2 {
+            margin-top: 20px;
+            color: var(--primary-color);
+        }
+        
+        .info-cards {
+            margin: 50px 0;
+        }
+        
+        .card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            height: 100%;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .card-body {
+            padding: 25px;
+        }
+        
+        .card-title {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 50px;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .quick-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .quick-links li {
+            margin-bottom: 10px;
+        }
+        
+        .quick-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .quick-links a:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+        
+        .benefits-section {
+            background-color: var(--light-color);
+            padding: 60px 0;
+            margin: 50px 0;
+        }
+        
+        .benefit-item {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .benefit-icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+        
+        .testimonials {
+            background-color: #f9f9f9;
+            padding: 60px 0;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin: 15px;
+            height: 100%;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .newsletter {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 50px 0;
+            margin: 50px 0;
+        }
+        
+        .newsletter h2 {
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .newsletter .form-control {
+            height: 50px;
+            border-radius: 30px;
+            border: none;
+        }
+        
+        .newsletter .btn {
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 30px;
+            padding: 10px 30px;
+            font-weight: 600;
+        }
+    </style>
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <!-- Navbar (estrutura do Julia Pozza, conteúdo do Rotas Inclusivas) -->
+    <!-- Navbar -->
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container">
                 <a class="navbar-brand" href="#">
                     <img src="img/logo (2).png" alt="Logo Rotas Inclusivas" class="logo-home">
@@ -25,57 +286,57 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item active">
-                            <a class="nav-link" href="inicialpage.html">Home</a>
+                            <a class="nav-link" href="inicialpage.html"><i class="fas fa-home"></i> Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Sobre</a>
+                            <a class="nav-link" href="#"><i class="fas fa-info-circle"></i> Sobre</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="passagens.html">Passagens</a>
+                            <a class="nav-link" href="passagens.html"><i class="fas fa-bus"></i> Passagens</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="compra.html">Comprar Passagem</a>
+                            <a class="nav-link" href="compra.html"><i class="fas fa-ticket-alt"></i> Comprar Passagem</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Contato</a>
+                            <a class="nav-link" href="#"><i class="fas fa-phone"></i> Contato</a>
                         </li>
                     </ul>
                     <form class="d-flex ms-auto">
                         <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
-                        <button class="btn btn-outline-success" type="submit">Buscar</button>
+                        <button class="btn btn-outline-light" type="submit"><i class="fas fa-search"></i></button>
                     </form>
                 </div>
             </div>
         </nav>
     </header>
 
-    <!-- Carrossel (estilo do Julia Pozza) -->
+    <!-- Carrossel -->
     <main>
         <div class="container">
             <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner" role="listbox">
                     <div class="carousel-item active" data-bs-interval="3000">
                         <img src="img/pexels-prajwal-304110553-31167936.jpg" class="d-block w-100" alt="Viagem Acessível">
-                        <div class="carousel-caption">
-                            <h5>Viagens Acessíveis</h5>
-                            <p>Descubra destinos incríveis com conforto e segurança.</p>
-                            <a href="passagens.html" class="btn btn-primary">Saiba Mais</a>
+                        <div class="carousel-caption text-start">
+                            <h5 class="display-4">Viagens Acessíveis</h5>
+                            <p class="lead">Conforto e segurança em cada destino</p>
+                            <a href="passagens.html" class="btn btn-primary btn-lg">Saiba Mais</a>
                         </div>
                     </div>
                     <div class="carousel-item" data-bs-interval="1800">
                         <img src="img/istockphoto-1371319562-2048x2048.jpg" class="d-block w-100" alt="Descontos">
-                        <div class="carousel-caption">
-                            <h5>Descontos Exclusivos</h5>
-                            <p>Aproveite passagens com desconto para idosos e PCDs.</p>
-                            <a href="passagens.html" class="btn btn-primary">Ver Promoções</a>
+                        <div class="carousel-caption text-center">
+                            <h5 class="display-4">Descontos Exclusivos</h5>
+                            <p class="lead">Economize até 50% em suas passagens</p>
+                            <a href="passagens.html" class="btn btn-primary btn-lg">Ver Promoções</a>
                         </div>
                     </div>
                     <div class="carousel-item" data-bs-interval="1800">
                         <img src="img/viagem3.jpg" class="d-block w-100" alt="Atendimento">
-                        <div class="carousel-caption">
-                            <h5>Atendimento Personalizado</h5>
-                            <p>Conte com assistência especial durante toda a viagem.</p>
-                            <a href="passagens.html" class="btn btn-primary">Conheça</a>
+                        <div class="carousel-caption text-end">
+                            <h5 class="display-4">Atendimento Personalizado</h5>
+                            <p class="lead">Assistência especial durante toda a viagem</p>
+                            <a href="passagens.html" class="btn btn-primary btn-lg">Conheça</a>
                         </div>
                     </div>
                 </div>
@@ -90,26 +351,111 @@
             </div>
         </div>
 
-        <!-- Seção de Destaques (3 cards redondos) -->
+        <!-- Seção de Benefícios -->
+        <section class="benefits-section">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="display-5">Por que escolher a Rotas Inclusivas?</h2>
+                    <p class="lead">Oferecemos soluções completas para viagens acessíveis</p>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-wheelchair"></i>
+                            </div>
+                            <h3>Acessibilidade Total</h3>
+                            <p>Ônibus 100% adaptados, rampas de acesso, banheiros acessíveis e espaços reservados.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-percentage"></i>
+                            </div>
+                            <h3>Descontos Especiais</h3>
+                            <p>Até 50% de desconto para idosos e PCDs, além de promoções exclusivas.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-headset"></i>
+                            </div>
+                            <h3>Atendimento 24h</h3>
+                            <p>Suporte especializado antes, durante e depois da viagem.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Destaques -->
         <div class="container marketing mt-5">
+            <div class="text-center mb-5">
+                <h2 class="display-5">Nossos Serviços</h2>
+                <p class="lead">Tudo o que você precisa para uma viagem perfeita</p>
+            </div>
+            
             <div class="row">
                 <div class="col-lg-4 text-center">
                     <img src="img/passagem.jpg" alt="Passagens" class="rounded-circle" width="140" height="140">
                     <h2>Passagens com Desconto</h2>
-                    <p>Economize em suas viagens com descontos exclusivos para idosos e PCDs.</p>
+                    <p>Economize em suas viagens com descontos exclusivos para idosos (acima de 60 anos) e PCDs. Descontos de até 50% em todas as rotas nacionais.</p>
                     <p><a href="passagens.html" class="btn btn-secondary">Comprar Passagens</a></p>
                 </div>
                 <div class="col-lg-4 text-center">
                     <img src="img/acessibilidade.jpg" alt="Acessibilidade" class="rounded-circle" width="140" height="140">
                     <h2>Acessibilidade Garantida</h2>
-                    <p>Viagens confortáveis e seguras, com ônibus e terminais adaptados.</p>
+                    <p>Frota 100% adaptada com elevadores, cintos de segurança especiais, banheiros acessíveis e espaços amplos para cadeiras de rodas.</p>
                     <p><a href="passagens.html" class="btn btn-secondary">Saiba Mais</a></p>
                 </div>
                 <div class="col-lg-4 text-center">
                     <img src="img/atendimento.jpg" alt="Atendimento" class="rounded-circle" width="140" height="140">
                     <h2>Atendimento Prioritário</h2>
-                    <p>Evite filas e conte com atendimento especializado.</p>
+                    <p>Embarque e desembarque prioritário, atendimento personalizado e acompanhamento em terminais para maior comodidade.</p>
                     <p><a href="passagens.html" class="btn btn-secondary">Conheça</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Seção de Informações -->
+        <div class="container info-cards">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="img/destinos.jpg" class="card-img-top" alt="Destinos">
+                        <div class="card-body">
+                            <h5 class="card-title">+100 Destinos</h5>
+                            <p class="card-text">Cobertura nacional com rotas para todas as capitais e principais cidades do Brasil. Viagens interestaduais e regionais com conforto.</p>
+                            <a href="#" class="btn btn-primary">Ver Destinos</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="img/seguranca.jpg" class="card-img-top" alt="Segurança">
+                        <div class="card-body">
+                            <h5 class="card-title">Segurança em Primeiro Lugar</h5>
+                            <p class="card-text">Motoristas treinados, veículos revisados e sistemas de monitoramento 24h. Sua segurança é nossa prioridade.</p>
+                            <a href="#" class="btn btn-primary">Nossos Padrões</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="img/companheiros.jpg" class="card-img-top" alt="Acompanhantes">
+                        <div class="card-body">
+                            <h5 class="card-title">Acompanhantes</h5>
+                            <p class="card-text">Descontos especiais para acompanhantes de PCDs. Viagem junto com quem você ama com condições especiais.</p>
+                            <a href="#" class="btn btn-primary">Saiba Mais</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -117,39 +463,201 @@
         <!-- Seções de Informação (Featurettes) -->
         <div class="container">
             <hr class="featurette-divider">
-            <div class="row featurette">
+            <div class="row featurette align-items-center">
                 <div class="col-md-7">
                     <h2 class="featurette-heading">Viagens Acessíveis e Confortáveis</h2>
-                    <p class="lead">Oferecemos viagens que priorizam o conforto e a segurança de idosos e PCDs. Com ônibus adaptados e terminais acessíveis, sua viagem será tranquila e sem preocupações.</p>
+                    <p class="lead">Na Rotas Inclusivas, cada detalhe foi pensado para seu conforto. Nossos ônibus possuem:</p>
+                    <ul class="lead">
+                        <li>Espaços amplos para cadeiras de rodas</li>
+                        <li>Banheiros adaptados</li>
+                        <li>Assentos reclináveis com apoio lombar</li>
+                        <li>Rampas de acesso automáticas</li>
+                        <li>Iluminação e sinalização adequadas</li>
+                    </ul>
                     <a href="passagens.html" class="btn btn-primary">Saiba Mais</a>
                 </div>
                 <div class="col-md-5">
-                    <img src="img/onibus.jpg" alt="Ônibus Acessível" class="featurette-image img-fluid mx-auto rounded" width="500" height="500">
+                    <img src="img/onibus.jpg" alt="Ônibus Acessível" class="featurette-image img-fluid mx-auto rounded shadow" width="500" height="500">
                 </div>
             </div>
 
             <hr class="featurette-divider">
 
-            <div class="row featurette">
+            <div class="row featurette align-items-center">
                 <div class="col-md-7 order-md-2">
                     <h2 class="featurette-heading">Descontos Exclusivos</h2>
-                    <p class="lead">Aproveite descontos especiais em passagens de ônibus para idosos e PCDs. Economize e viaje com mais frequência!</p>
+                    <p class="lead">Oferecemos os melhores preços do mercado para idosos e PCDs:</p>
+                    <ul class="lead">
+                        <li>50% de desconto para maiores de 60 anos</li>
+                        <li>Descontos especiais para PCDs e acompanhantes</li>
+                        <li>Promoções sazonais com até 60% de desconto</li>
+                        <li>Programa de fidelidade com milhas e benefícios</li>
+                        <li>Descontos em pacotes de viagens</li>
+                    </ul>
                     <a href="passagens.html" class="btn btn-primary">Ver Promoções</a>
                 </div>
                 <div class="col-md-5 order-md-1">
-                    <img src="img/desconto.jpg" alt="Descontos" class="featurette-image img-fluid mx-auto rounded" width="500" height="500">
+                    <img src="img/desconto.jpg" alt="Descontos" class="featurette-image img-fluid mx-auto rounded shadow" width="500" height="500">
                 </div>
             </div>
         </div>
+
+        <!-- Seção de Depoimentos -->
+        <section class="testimonials">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="display-5">O que nossos clientes dizem</h2>
+                    <p class="lead">Depoimentos de quem já viajou conosco</p>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="testimonial-card">
+                            <div class="testimonial-text">
+                                "Como cadeirante, sempre tive dificuldades para viajar. Com a Rotas Inclusivas, finalmente posso visitar minha família com conforto e segurança."
+                            </div>
+                            <div class="testimonial-author">
+                                Carlos Silva, 58 anos - São Paulo/SP
+                            </div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="testimonial-card">
+                            <div class="testimonial-text">
+                                "Os descontos para idosos são excelentes! Agora posso viajar mais para visitar meus netos sem preocupação com o custo."
+                            </div>
+                            <div class="testimonial-author">
+                                Maria Oliveira, 72 anos - Belo Horizonte/MG
+                            </div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="testimonial-card">
+                            <div class="testimonial-text">
+                                "O atendimento é excepcional! Meu pai tem mobilidade reduzida e os funcionários sempre ajudam com todo o cuidado necessário."
+                            </div>
+                            <div class="testimonial-author">
+                                Ana Santos, 45 anos - Porto Alegre/RS
+                            </div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="newsletter">
+            <div class="container text-center">
+                <h2>Receba Ofertas Exclusivas</h2>
+                <p class="lead mb-4">Cadastre-se e receba promoções, descontos e novidades em primeira mão!</p>
+                
+                <form class="row justify-content-center">
+                    <div class="col-md-6 mb-2">
+                        <input type="email" class="form-control" placeholder="Digite seu melhor e-mail">
+                    </div>
+                    <div class="col-md-2 mb-2">
+                        <button type="submit" class="btn btn-primary w-100">Cadastrar</button>
+                    </div>
+                </form>
+                
+                <div class="mt-3">
+                    <small>Não compartilhamos seus dados. Respeitamos sua privacidade.</small>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <!-- Rodapé (estilo simples como no Julia Pozza) -->
-    <footer class="text-center py-4 bg-light">
-        <p>&copy; 2023 Rotas Inclusivas. Todos os direitos reservados.</p>
-        <p>Desenvolvido com ❤️ para você!</p>
+    <!-- Rodapé -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <img src="img/logo (2).png" alt="Logo Rotas Inclusivas" width="180" class="mb-3">
+                    <p>Especializada em viagens acessíveis para idosos e pessoas com deficiência. Conforto, segurança e preços acessíveis em todas as rotas.</p>
+                    
+                    <div class="social-icons mt-3">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-md-2 mb-4">
+                    <h5>Links Rápidos</h5>
+                    <ul class="quick-links">
+                        <li><a href="inicialpage.html">Home</a></li>
+                        <li><a href="#">Sobre Nós</a></li>
+                        <li><a href="passagens.html">Passagens</a></li>
+                        <li><a href="compra.html">Comprar</a></li>
+                        <li><a href="#">Terminais</a></li>
+                        <li><a href="#">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <h5>Informações</h5>
+                    <ul class="quick-links">
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">Perguntas Frequentes</a></li>
+                        <li><a href="#">Reclamações</a></li>
+                        <li><a href="#">Trabalhe Conosco</a></li>
+                        <li><a href="#">Seja um Parceiro</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <h5>Contato</h5>
+                    <ul class="quick-links">
+                        <li><i class="fas fa-phone me-2"></i> (11) 4002-8922</li>
+                        <li><i class="fas fa-whatsapp me-2"></i> (11) 98765-4321</li>
+                        <li><i class="fas fa-envelope me-2"></i> contato@rotasinclusivas.com.br</li>
+                        <li><i class="fas fa-map-marker-alt me-2"></i> Av. Paulista, 1000 - São Paulo/SP</li>
+                        <li><i class="fas fa-clock me-2"></i> Atendimento 24h</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr style="border-color: rgba(255,255,255,0.1);">
+            
+            <div class="row">
+                <div class="col-md-6 text-md-start text-center mb-2">
+                    <p>&copy; 2023 Rotas Inclusivas. Todos os direitos reservados.</p>
+                </div>
+                <div class="col-md-6 text-md-end text-center">
+                    <p>Desenvolvido com <i class="fas fa-heart" style="color: #e74c3c;"></i> para você!</p>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+<!--Imagens estao nomeadas mas nao foram colocadas na pasta de imagens -->
+<!--Essa versão ainda nao esta completa, estudando para melhorar com o angular -->
