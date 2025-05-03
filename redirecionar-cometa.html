@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecionando para Cometa</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .redirect-box {
+            max-width: 600px;
+            margin: 100px auto;
+            padding: 30px;
+            text-align: center;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        .spinner {
+            width: 3rem;
+            height: 3rem;
+            margin: 20px auto;
+        }
+    </style>
+    <!-- Redireciona após 5 segundos -->
+    <meta http-equiv="refresh" content="5;url=https://www.viacaocometa.com.br">
+</head>
+<body style="background-color: #f8f9fa;">
+    <div class="redirect-box">
+        <h3><i class="fas fa-external-link-alt"></i> Você está indo para o site da Cometa</h3>
+        
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Carregando...</span>
+        </div>
+        
+        <p class="mt-3">Aguarde, estamos te levando para o site oficial da Viação Cometa...</p>
+        
+        <div class="alert alert-info mt-4">
+            <strong>Importante:</strong> Seu desconto de 50% será aplicado durante a compra no site da Cometa.
+        </div>
+        
+        <p>Se não for redirecionado em 5 segundos, <a href="https://www.viacaocometa.com.br" class="btn btn-sm btn-primary">clique aqui</a></p>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/your-code.js" crossorigin="anonymous"></script>
+</body>
+</html>
