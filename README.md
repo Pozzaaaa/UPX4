@@ -52,4 +52,4 @@ O projeto foi baseado em leis brasileiras que garantem benefícios a idosos e PC
 
 ## 📌 Objetivo Acadêmico
 
-Este projeto foi desenvolvido como parte do curso universitário na disciplina de **Mobilidade e Urbanismo**, com o intuito de promover a inclusão digital e social por meio de soluções acessíveis para o transporte público.
+Este projeto foi desenvolvido como parte do curso universitário abrangendo o tema **Mobilidade e Urbanismo**, com o intuito de promover a inclusão digital e social por meio de soluções acessíveis para o transporte público.
